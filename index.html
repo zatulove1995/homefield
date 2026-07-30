@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homefield — AI neighborhood outreach that turns every job into the next</title>
+<meta name="description" content="Every time you serve a home, Homefield reaches the surrounding neighbors for you — automatically, from managed infrastructure so your domain stays clean, exclusive to you, and booked onto your calendar. Built for real estate agents and home services businesses.">
+<style>
+  :root{
+    --ink:#0d1510;--ink-soft:#48524a;--paper:#f4f2ea;--paper-2:#eae7db;--card:#ffffff;--line:#ddd8c9;
+    --forest:#123a26;--green:#1a8047;--green-deep:#116035;--green-soft:#e4f1e6;--lime:#7ed957;--lime-ink:#0d1510;
+    --shadow:0 1px 2px rgba(13,21,16,.05),0 16px 40px rgba(13,21,16,.07);--radius:18px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,"Roboto Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green);display:inline-block}
+  h1,h2,h3{font-weight:800;line-height:1.02;letter-spacing:-.03em}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:15px;padding:14px 24px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.18s ease;white-space:nowrap}
+  .btn-primary{background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
+  .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 8px 20px rgba(126,217,87,.35)}
+  .btn-dark{background:var(--forest);color:#fff;border-color:var(--forest)}
+  .btn-dark:hover{background:#0d2c1c;transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--ink);background:#fff}
+  .btn-lg{padding:17px 32px;font-size:16px}
+
+  header.nav{position:sticky;top:0;z-index:50;background:var(--forest);color:#eef3ee}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:20px;letter-spacing:-.03em;color:#fff}
+  .logo .mark{width:26px;height:26px;border-radius:7px;background:var(--lime);display:grid;place-items:center;color:var(--forest);font-weight:900;font-size:15px}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:550;color:#bcd0c1}
+  .nav-links a:hover{color:#fff}
+  .nav-cta{display:flex;gap:12px;align-items:center}
+  .nav-cta .signin{font-size:14.5px;color:#bcd0c1;font-weight:550}
+  .nav-cta .signin:hover{color:#fff}
+  .dropdown{position:relative}
+  .ddtrigger{background:none;border:none;font:inherit;color:#bcd0c1;font-size:14.5px;font-weight:550;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:0}
+  .dropdown:hover .ddtrigger{color:#fff}
+  .ddtrigger .car{font-size:9px;transition:.16s}
+  .dropdown:hover .ddtrigger .car{transform:rotate(180deg)}
+  .ddmenu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(6px);background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;min-width:250px;opacity:0;visibility:hidden;transition:.16s ease;z-index:60}
+  .ddmenu::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+  .dropdown:hover .ddmenu,.dropdown:focus-within .ddmenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .ddmenu a{display:block;padding:11px 14px;border-radius:9px;color:var(--ink);font-size:14.5px;font-weight:650}
+  .ddmenu a small{display:block;font-size:12px;color:var(--ink-soft);font-weight:400;margin-top:1px}
+  .ddmenu a:hover{background:var(--green-soft)}
+  @media(max-width:900px){.nav-links{display:none}.nav-cta .signin{display:none}}
+
+  .hero{padding:82px 0 30px;text-align:center;background:radial-gradient(120% 90% at 50% -10%,#fbfaf5 0%,var(--paper) 55%)}
+  .hero h1{font-size:clamp(44px,8vw,92px);letter-spacing:-.045em;margin:20px auto 26px;max-width:16ch}
+  .hero h1 em{font-style:italic;color:var(--green)}
+  .hero p.sub{font-size:clamp(17px,2.2vw,21px);color:var(--ink-soft);max-width:660px;margin:0 auto 6px}
+
+  .choose{padding:44px 0 30px}
+  .choose .divider{display:flex;align-items:center;gap:16px;justify-content:center;margin:0 auto 34px;max-width:520px;color:var(--ink-soft)}
+  .choose .divider::before,.choose .divider::after{content:"";height:1px;background:var(--line);flex:1}
+  .ccards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .ccard{display:flex;flex-direction:column;border-radius:22px;padding:36px;border:1px solid var(--line);transition:.18s ease;position:relative;overflow:hidden}
+  .ccard.light{background:var(--card);box-shadow:var(--shadow)}
+  .ccard.dark{background:var(--forest);color:#eaf2ea;border-color:#1c4b31}
+  .ccard:hover{transform:translateY(-3px)}
+  .ccard .ic{width:56px;height:56px;border-radius:15px;display:grid;place-items:center;font-size:27px;margin-bottom:20px}
+  .ccard.light .ic{background:var(--green-soft)}
+  .ccard.dark .ic{background:#1c4b31}
+  .ccard .kick{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+  .ccard.dark .kick{color:var(--lime)}
+  .ccard h3{font-size:28px;letter-spacing:-.03em;margin-bottom:10px}
+  .ccard p{font-size:15.5px;color:var(--ink-soft);margin-bottom:20px}
+  .ccard.dark p{color:#a9c6b1}
+  .ccard ul{list-style:none;margin-bottom:26px;flex:1}
+  .ccard li{display:flex;gap:10px;padding:7px 0;font-size:14.5px}
+  .ccard li .c{color:var(--green);font-weight:800;flex:0 0 auto}
+  .ccard.dark li .c{color:var(--lime)}
+  .ccard .btn{align-self:flex-start}
+  @media(max-width:820px){.ccards{grid-template-columns:1fr}}
+
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
+  .strip-inner{padding:22px 0;text-align:center}
+  .strip .lead{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+  .strip .logos{display:flex;gap:34px;justify-content:center;align-items:center;flex-wrap:wrap;font-weight:800;font-size:17px;letter-spacing:-.01em;color:#9aa39a}
+  .strip .logos span{opacity:.85}
+
+  section.block{padding:92px 0}
+  .sec-head{max-width:740px;margin:0 auto 52px;text-align:center}
+  .sec-head h2{font-size:clamp(32px,4.6vw,50px);margin:14px 0 16px;letter-spacing:-.035em}
+  .sec-head p{font-size:18px;color:var(--ink-soft)}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .pillar{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+  .pillar .pic{width:46px;height:46px;border-radius:12px;background:var(--forest);color:var(--lime);display:grid;place-items:center;font-size:22px;margin-bottom:18px}
+  .pillar h3{font-size:21px;letter-spacing:-.02em;margin-bottom:10px}
+  .pillar p{font-size:15px;color:var(--ink-soft)}
+  .pillar .tag{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:5px 10px;border-radius:999px}
+  @media(max-width:820px){.pillars{grid-template-columns:1fr}}
+
+  .cta{background:var(--forest);color:#fff;text-align:center}
+  .cta h2{font-size:clamp(34px,5vw,58px);letter-spacing:-.04em;margin-bottom:18px}
+  .cta h2 em{font-style:italic;color:var(--lime)}
+  .cta p{color:#a9c6b1;font-size:19px;max-width:520px;margin:0 auto 30px}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .cta .btn-ghost{color:#fff;border-color:#2a6644}
+  .cta .btn-ghost:hover{border-color:#fff;background:transparent}
+
+  footer{background:#0a130d;color:#8fb79b;padding:52px 0 34px}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;margin-bottom:32px}
+  .foot-grid .logo{color:#fff}
+  .foot-grid p{font-size:14px;color:#7c9a84;max-width:320px;margin-top:12px}
+  .foot-links{display:flex;gap:26px;font-size:14px;flex-wrap:wrap}
+  .foot-links a:hover{color:#fff}
+  .foot-bottom{border-top:1px solid #17281c;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#5f7a67}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="mark">H</span>Homefield</a>
+    <nav class="nav-links">
+      <div class="dropdown">
+        <button class="ddtrigger" aria-haspopup="true">Product <span class="car">▾</span></button>
+        <div class="ddmenu">
+          <a href="agents.html">For real estate agents<small>Every listing &amp; closing → the neighbors</small></a>
+          <a href="home-services.html">For home services<small>Every completed job → the neighbors</small></a>
+        </div>
+      </div>
+      <a href="#why">Why Homefield</a>
+      <a href="#choose">Pricing</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#" class="signin">Sign in</a>
+      <a href="#choose" class="btn btn-primary">Get started</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">AI neighborhood outreach</span>
+    <h1>Serve one home. <em>Win the whole street.</em></h1>
+    <p class="sub">Every time you serve a home, Homefield reaches the surrounding neighbors for you — automatically, from our infrastructure so your domain stays clean, exclusive to you, and booked onto your calendar.</p>
+  </div>
+</section>
+
+<!-- CHOOSE -->
+<section class="choose" id="choose">
+  <div class="wrap">
+    <div class="divider mono">Pick your product</div>
+    <div class="ccards">
+
+      <a class="ccard light" href="agents.html">
+        <div class="ic">🏡</div>
+        <div class="kick">For real estate agents</div>
+        <h3>Homefield for Agents</h3>
+        <p>The moment you list or close a home, Scout circle-prospects the nearest neighbors with a just-listed / just-sold campaign — and books the appointments.</p>
+        <ul>
+          <li><span class="c">✓</span> Triggered by your MLS listings &amp; closings</li>
+          <li><span class="c">✓</span> Reaches 250–1,000 neighbors per event</li>
+          <li><span class="c">✓</span> Exclusive area, domain-safe, books to your calendar</li>
+        </ul>
+        <span class="btn btn-dark">Explore for Agents →</span>
+      </a>
+
+      <a class="ccard dark" href="home-services.html">
+        <div class="ic">🔧</div>
+        <div class="kick">For home services</div>
+        <h3>Homefield for Home Services</h3>
+        <p>The moment you finish a job, Scout reaches the surrounding neighbors with a "we were just next door" campaign — and books the estimates.</p>
+        <ul>
+          <li><span class="c">✓</span> Triggered by your completed jobs</li>
+          <li><span class="c">✓</span> Reaches 50–500 neighbors per job</li>
+          <li><span class="c">✓</span> One trade per area, domain-safe, books to your calendar</li>
+        </ul>
+        <span class="btn btn-primary">Explore for Home Services →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<div class="strip">
+  <div class="wrap strip-inner">
+    <div class="lead">3,200+ local businesses turn every job into the next on Homefield</div>
+    <div class="logos">
+      <span>REAL ESTATE</span><span>ROOFING</span><span>HVAC</span><span>PLUMBING</span><span>LANDSCAPING</span><span>SOLAR</span>
+    </div>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="block" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Why Homefield</span>
+      <h2>Same engine. Three things a mailer can't do.</h2>
+      <p>Whichever product you run, the outreach lands, stays yours, and turns into booked appointments.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pic">🛡️</div>
+        <h3>Your real domain never touches it</h3>
+        <p>We send from managed, warmed, isolated infrastructure — not your business inbox. Reach thousands of homeowners without ever risking the domain your customers run through.</p>
+        <span class="tag">Domain-safe sending</span>
+      </div>
+      <div class="pillar">
+        <div class="pic">🔒</div>
+        <h3>Exclusive to you</h3>
+        <p>We lock your area and dedupe across the whole network. The neighbor you just earned won't get the same campaign from three competitors the same week.</p>
+        <span class="tag">Area exclusivity</span>
+      </div>
+      <div class="pillar">
+        <div class="pic">📅</div>
+        <h3>It books — not just sends</h3>
+        <p>Replies get read, qualified, and answered by AI in your voice. Warm ones land on your calendar as booked appointments — not an inbox to triage.</p>
+        <span class="tag">AI reply-to-booking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="block cta">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--lime)">Get started</span>
+    <h2>Which one are you? <em>Pick your product.</em></h2>
+    <p>Choose your world and pull your neighborhood count in 6 seconds — before you pay a dime.</p>
+    <div class="cta-actions">
+      <a href="agents.html" class="btn btn-primary btn-lg">I'm a real estate agent →</a>
+      <a href="home-services.html" class="btn btn-ghost btn-lg">I run a home services business →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="mark">H</span>Homefield</a>
+        <p>AI neighborhood outreach for real estate agents and home services businesses. Every job you finish turns into outreach to the neighbors — sent from our infrastructure, so your area stays yours.</p>
+      </div>
+      <div class="foot-links">
+        <a href="agents.html">For Agents</a>
+        <a href="home-services.html">For Home Services</a>
+        <a href="#why">Why Homefield</a>
+        <a href="#choose">Pricing</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Homefield. All rights reserved.</span>
+      <span>Outreach is sent in compliance with federal (CAN-SPAM) and applicable state rules.</span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
