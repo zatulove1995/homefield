@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homefield Prospect — Done-for-you outbound customer acquisition</title>
+<meta name="description" content="We build and run your entire outbound customer-acquisition engine — homeowner data, warmed infrastructure, copy, sending, reply handling, and booking. You get appointments on your calendar, not another tool to learn. From $3,000/mo.">
+<style>
+  :root{
+    --ink:#0d1510;--ink-soft:#48524a;--paper:#f4f2ea;--paper-2:#eae7db;--card:#ffffff;--line:#ddd8c9;
+    --forest:#123a26;--green:#1a8047;--green-deep:#116035;--green-soft:#e4f1e6;--lime:#7ed957;--lime-ink:#0d1510;
+    --shadow:0 1px 2px rgba(13,21,16,.05),0 16px 40px rgba(13,21,16,.07);--radius:18px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,"Roboto Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+  .eyebrow{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green);display:inline-block}
+  h1,h2,h3{font-weight:800;line-height:1.02;letter-spacing:-.03em}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:15px;padding:14px 24px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.18s ease;white-space:nowrap}
+  .btn-primary{background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
+  .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 8px 20px rgba(126,217,87,.35)}
+  .btn-dark{background:var(--forest);color:#fff;border-color:var(--forest)}
+  .btn-dark:hover{background:#0d2c1c;transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--ink);background:#fff}
+  .btn-lg{padding:17px 32px;font-size:16px}
+
+  header.nav{position:sticky;top:0;z-index:50;background:var(--forest);color:#eef3ee}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:20px;letter-spacing:-.03em;color:#fff}
+  .logo .mark{width:26px;height:26px;border-radius:7px;background:var(--lime);display:grid;place-items:center;color:var(--forest);font-weight:900;font-size:15px}
+  .logo .pbadge{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);border:1px solid #2a6644;border-radius:999px;padding:3px 9px;margin-left:4px;font-weight:600}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:550;color:#bcd0c1}
+  .nav-links a:hover{color:#fff}
+  .nav-cta{display:flex;gap:12px;align-items:center}
+  .nav-cta .signin{font-size:14.5px;color:#bcd0c1;font-weight:550}
+  .nav-cta .signin:hover{color:#fff}
+  .dropdown{position:relative}
+  .ddtrigger{background:none;border:none;font:inherit;color:#bcd0c1;font-size:14.5px;font-weight:550;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:0}
+  .dropdown:hover .ddtrigger{color:#fff}
+  .ddtrigger .car{font-size:9px;transition:.16s}
+  .dropdown:hover .ddtrigger .car{transform:rotate(180deg)}
+  .ddmenu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(6px);background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;min-width:280px;opacity:0;visibility:hidden;transition:.16s ease;z-index:60}
+  .ddmenu::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+  .dropdown:hover .ddmenu,.dropdown:focus-within .ddmenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .ddmenu a{display:block;padding:11px 14px;border-radius:9px;color:var(--ink);font-size:14.5px;font-weight:650}
+  .ddmenu a small{display:block;font-size:12px;color:var(--ink-soft);font-weight:400;margin-top:1px}
+  .ddmenu a:hover{background:var(--green-soft)}
+  .ddmenu a.active{background:var(--paper-2)}
+  @media(max-width:900px){.nav-links{display:none}.nav-cta .signin{display:none}}
+
+  .hero{padding:74px 0 40px;text-align:center;background:radial-gradient(120% 90% at 50% -10%,#fbfaf5 0%,var(--paper) 55%)}
+  .hero h1{font-size:clamp(42px,7.6vw,88px);letter-spacing:-.045em;margin:20px auto 26px;max-width:16ch}
+  .hero h1 em{font-style:italic;color:var(--green)}
+  .hero p.sub{font-size:clamp(17px,2.2vw,21px);color:var(--ink-soft);max-width:660px;margin:0 auto 32px}
+  .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .hero-sub2{margin-top:18px;font-size:13.5px;color:var(--ink-soft)}
+
+  /* DONE FOR YOU SPLIT */
+  .dfy{padding:8px 0 84px}
+  .dfybox{max-width:900px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+  .dfyhead{padding:26px 32px;border-bottom:1px solid var(--line);background:var(--paper-2);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .dfyhead .live{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(126,217,87,.25);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(126,217,87,.25)}50%{box-shadow:0 0 0 7px rgba(126,217,87,.08)}}
+  .dfyhead .t{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .dfyhead .pill{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-deep);background:var(--green-soft);padding:6px 12px;border-radius:999px;font-weight:700}
+  .dfycols{display:grid;grid-template-columns:1fr 1fr}
+  .dfycol{padding:30px 32px}
+  .dfycol:first-child{border-right:1px solid var(--line)}
+  .dfycol h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+  .dfycol.us h4{color:var(--green)}
+  .dfycol.them h4{color:var(--ink-soft)}
+  .dfycol ul{list-style:none}
+  .dfycol li{display:flex;gap:10px;padding:9px 0;font-size:15px;border-bottom:1px solid var(--line)}
+  .dfycol li:last-child{border:none}
+  .dfycol.us li .c{color:var(--green);font-weight:800;flex:0 0 auto}
+  .dfycol.them li{color:var(--ink-soft)}
+  .dfycol.them li .c{color:#b23b34;font-weight:800;flex:0 0 auto}
+  @media(max-width:820px){.dfycols{grid-template-columns:1fr}.dfycol:first-child{border-right:none;border-bottom:1px solid var(--line)}}
+
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
+  .strip-inner{padding:22px 0;text-align:center}
+  .strip .lead{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+  .strip .logos{display:flex;gap:34px;justify-content:center;align-items:center;flex-wrap:wrap;font-weight:800;font-size:17px;letter-spacing:-.01em;color:#9aa39a}
+  .strip .logos span{opacity:.85}
+
+  section.block{padding:88px 0}
+  .sec-head{max-width:740px;margin-bottom:48px}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .sec-head h2{font-size:clamp(30px,4.4vw,46px);margin:14px 0 16px;letter-spacing:-.035em}
+  .sec-head p{font-size:18px;color:var(--ink-soft)}
+
+  .flows{background:var(--forest);color:#e6efe7}
+  .flows .eyebrow{color:var(--lime)}
+  .flows .sec-head h2{color:#fff}
+  .flows .sec-head p{color:#a9c6b1}
+  .flowsteps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .fstep{background:#0f3020;border:1px solid #1f5237;border-radius:var(--radius);padding:26px}
+  .fstep .num{width:34px;height:34px;border-radius:10px;background:#17402a;color:var(--lime);display:grid;place-items:center;font-weight:800;font-size:15px;font-family:var(--mono);margin-bottom:16px}
+  .fstep b{font-size:17px;color:#fff;display:block;margin-bottom:7px;letter-spacing:-.01em}
+  .fstep p{font-size:14px;color:#a9c6b1}
+  @media(max-width:900px){.flowsteps{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.flowsteps{grid-template-columns:1fr}}
+
+  .trig{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .tcard .ic{font-size:28px;margin-bottom:14px}
+  .tcard h3{font-size:19px;letter-spacing:-.02em;margin-bottom:10px}
+  .tcard .tline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:5px 10px;border-radius:999px;display:inline-block;margin-bottom:12px}
+  .tcard p{font-size:14.5px;color:var(--ink-soft)}
+  @media(max-width:820px){.trig{grid-template-columns:1fr}}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .pillar{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+  .pillar .pic{width:46px;height:46px;border-radius:12px;background:var(--forest);color:var(--lime);display:grid;place-items:center;font-size:22px;margin-bottom:18px}
+  .pillar h3{font-size:21px;letter-spacing:-.02em;margin-bottom:10px}
+  .pillar p{font-size:15px;color:var(--ink-soft)}
+  .pillar .tag{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:5px 10px;border-radius:999px}
+  @media(max-width:820px){.pillars{grid-template-columns:1fr}}
+
+  /* PRICING - service tiers */
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+  .plan.feat{background:var(--forest);color:#eaf2ea;border-color:var(--forest);position:relative}
+  .plan .pn{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+  .plan.feat .pn{color:var(--lime)}
+  .plan .pr{font-size:42px;font-weight:800;letter-spacing:-.03em;margin:12px 0 2px}
+  .plan .pr span{font-size:16px;font-weight:600;color:var(--ink-soft)}
+  .plan.feat .pr span{color:#a9c6b1}
+  .plan .pd{font-size:14px;color:var(--ink-soft);min-height:44px}
+  .plan.feat .pd{color:#a9c6b1}
+  .plan ul{list-style:none;margin:20px 0 26px;flex:1}
+  .plan li{display:flex;gap:10px;padding:8px 0;font-size:14.5px;border-bottom:1px solid var(--line)}
+  .plan.feat li{border-color:#1f5237}
+  .plan li:last-child{border:none}
+  .plan li .c{color:var(--green);font-weight:800}
+  .plan.feat li .c{color:var(--lime)}
+  .plan .btn{width:100%;justify-content:center}
+  .plan .flag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--lime);color:var(--lime-ink);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:6px 14px;border-radius:999px}
+  .price-foot{text-align:center;margin-top:22px;font-size:13.5px;color:var(--ink-soft)}
+  @media(max-width:820px){.pgrid{grid-template-columns:1fr}}
+
+  .faq{max-width:820px;margin:0 auto}
+  details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+  details summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:700;font-size:17px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  details summary::-webkit-details-marker{display:none}
+  details summary .pm{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--green-soft);color:var(--green-deep);display:grid;place-items:center;font-size:18px;font-weight:600;transition:.2s}
+  details[open] summary .pm{transform:rotate(45deg)}
+  details .a{padding:0 24px 22px;color:var(--ink-soft);font-size:15.5px}
+
+  .cta{background:var(--forest);color:#fff;text-align:center}
+  .cta h2{font-size:clamp(34px,5vw,58px);letter-spacing:-.04em;margin-bottom:18px}
+  .cta h2 em{font-style:italic;color:var(--lime)}
+  .cta p{color:#a9c6b1;font-size:19px;max-width:540px;margin:0 auto 30px}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .cta .btn-ghost{color:#fff;border-color:#2a6644}
+  .cta .btn-ghost:hover{border-color:#fff;background:transparent}
+
+  footer{background:#0a130d;color:#8fb79b;padding:52px 0 34px}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;margin-bottom:32px}
+  .foot-grid .logo{color:#fff}
+  .foot-grid p{font-size:14px;color:#7c9a84;max-width:340px;margin-top:12px}
+  .foot-links{display:flex;gap:26px;font-size:14px;flex-wrap:wrap}
+  .foot-links a:hover{color:#fff}
+  .foot-bottom{border-top:1px solid #17281c;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#5f7a67}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="mark">H</span>Homefield<span class="pbadge">Prospect</span></a>
+    <nav class="nav-links">
+      <div class="dropdown">
+        <button class="ddtrigger" aria-haspopup="true">Products <span class="car">▾</span></button>
+        <div class="ddmenu">
+          <a href="neighborhood.html">Neighborhood<small>Prospect the neighbors of every job you do</small></a>
+          <a href="prospect.html" class="active">Prospect<small>Done-for-you outbound customer acquisition</small></a>
+        </div>
+      </div>
+      <a href="#how">How it works</a>
+      <a href="#industries">Industries</a>
+      <a href="#why">Why Homefield</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#" class="signin">Sign in</a>
+      <a href="#start" class="btn btn-primary">Book a call</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Product 02 · Prospect</span>
+    <h1>We run the outbound. <em>You close the deals.</em></h1>
+    <p class="sub">Prospect is your entire customer-acquisition engine, done for you. We build the homeowner list, warm the infrastructure, write the copy, send the campaigns, handle every reply, and put booked appointments on your calendar. You just show up.</p>
+    <div class="hero-actions">
+      <a href="#start" class="btn btn-primary btn-lg">Book a call →</a>
+      <a href="#how" class="btn btn-ghost btn-lg">See what we run</a>
+    </div>
+    <div class="hero-sub2">From $3,000/mo · Fully managed · One business per market</div>
+  </div>
+</section>
+
+<!-- DONE FOR YOU -->
+<section class="dfy">
+  <div class="wrap">
+    <div class="dfybox">
+      <div class="dfyhead">
+        <span class="live"></span>
+        <span class="t">Homefield Prospect · Fully managed</span>
+        <span class="pill">You do none of this</span>
+      </div>
+      <div class="dfycols">
+        <div class="dfycol us">
+          <h4>What we handle</h4>
+          <ul>
+            <li><span class="c">✓</span> Homeowner data, filtering &amp; list building</li>
+            <li><span class="c">✓</span> Domain purchase, warmup &amp; inbox infrastructure</li>
+            <li><span class="c">✓</span> Offer positioning &amp; campaign copywriting</li>
+            <li><span class="c">✓</span> Sending, throttling &amp; deliverability monitoring</li>
+            <li><span class="c">✓</span> Every reply read, qualified &amp; answered</li>
+            <li><span class="c">✓</span> Appointments booked to your calendar</li>
+            <li><span class="c">✓</span> Compliance, unsubscribes &amp; suppression</li>
+            <li><span class="c">✓</span> Reporting on sends, replies &amp; booked calls</li>
+          </ul>
+        </div>
+        <div class="dfycol them">
+          <h4>What you handle</h4>
+          <ul>
+            <li><span class="c">✕</span> Buying and cleaning lists</li>
+            <li><span class="c">✕</span> Burning your domain on cold volume</li>
+            <li><span class="c">✕</span> Writing and testing campaigns</li>
+            <li><span class="c">✕</span> Babysitting an outbound tool</li>
+            <li><span class="c">✕</span> Triaging a flooded inbox</li>
+            <li><span class="c">✕</span> Chasing people who went cold</li>
+            <li><span class="c">✕</span> Learning CAN-SPAM the hard way</li>
+            <li style="color:var(--ink);font-weight:700"><span class="c" style="color:var(--green)">✓</span> Show up to the appointment and close</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO STRIP -->
+<div class="strip">
+  <div class="wrap strip-inner">
+    <div class="lead">Outbound engines running for operators in</div>
+    <div class="logos">
+      <span>REAL ESTATE</span><span>ROOFING</span><span>HVAC</span><span>SOLAR</span><span>INSURANCE</span><span>REMODELING</span>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="block flows" id="how">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">How it works</span>
+      <h2>Live in about two weeks.</h2>
+      <p>We build the machine, then we run it every day. You get a calendar that fills.</p>
+    </div>
+    <div class="flowsteps">
+      <div class="fstep">
+        <div class="num">1</div>
+        <b>Strategy &amp; offer</b>
+        <p>We map your market, your ideal customer, and the offer that will actually make a homeowner reply.</p>
+      </div>
+      <div class="fstep">
+        <div class="num">2</div>
+        <b>Infrastructure build</b>
+        <p>We buy and warm dedicated sending domains and build your target list from 3.1M+ verified homeowners.</p>
+      </div>
+      <div class="fstep">
+        <div class="num">3</div>
+        <b>Campaigns go live</b>
+        <p>Personalized sequences go out at scale from our infrastructure — never your business domain.</p>
+      </div>
+      <div class="fstep">
+        <div class="num">4</div>
+        <b>Replies → appointments</b>
+        <p>Our team and AI qualify every reply and book interested homeowners straight onto your calendar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="block" id="industries">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Who we run it for</span>
+      <h2>Net-new customers, across your whole market.</h2>
+      <p>Neighborhood works your own backyard. Prospect goes and gets everyone else.</p>
+    </div>
+    <div class="trig">
+      <div class="tcard">
+        <div class="ic">🏡</div>
+        <div class="tline">Real estate agents</div>
+        <h3>Homeowners thinking of selling</h3>
+        <p>We target by equity, tenure, and life-stage signals across your market and book listing appointments — not shared portal leads you race four agents for.</p>
+      </div>
+      <div class="tcard">
+        <div class="ic">🔧</div>
+        <div class="tline">Home services</div>
+        <h3>Homes that fit your best job</h3>
+        <p>We target by home age, value, roof age, lot size, and more — so you're quoting the jobs you actually want, at scale, all season.</p>
+      </div>
+      <div class="tcard">
+        <div class="ic">🛡️</div>
+        <div class="tline">Home insurance</div>
+        <h3>Homeowners in the renewal window</h3>
+        <p>We reach homeowners 30–45 days before renewal by profile and property type, and book quote appointments while they're actually shopping.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="block" id="why" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Why Homefield</span>
+      <h2>Not an agency that "does email."</h2>
+      <p>We own the infrastructure and the data — which is why this works when a freelancer with a tool subscription doesn't.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pic">🛡️</div>
+        <h3>Your real domain never touches it</h3>
+        <p>Every campaign runs on dedicated domains we buy, warm, and monitor. Your business email — the one your customers and quotes run through — is never exposed to cold volume.</p>
+        <span class="tag">Domain-safe sending</span>
+      </div>
+      <div class="pillar">
+        <div class="pic">🔒</div>
+        <h3>One business per market</h3>
+        <p>We don't run competing campaigns in the same market. Your offer isn't landing in a homeowner's inbox next to two of your competitors running the same play.</p>
+        <span class="tag">Market exclusivity</span>
+      </div>
+      <div class="pillar">
+        <div class="pic">📅</div>
+        <h3>Measured in appointments</h3>
+        <p>Not opens. Not "impressions." We report on replies and booked appointments, because that's the only number that pays your bills.</p>
+        <span class="tag">Booked, not blasted</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="block" id="pricing">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Pricing</span>
+      <h2>Done-for-you, from $3,000/mo.</h2>
+      <p>Flat monthly retainer — infrastructure, data, sending, reply handling, and booking all included. No per-lead fees.</p>
+    </div>
+    <div class="pgrid">
+
+      <div class="plan">
+        <div class="pn">Launch</div>
+        <div class="pr">$3,000<span>/mo</span></div>
+        <div class="pd">One market, one offer. The full engine, built and run.</div>
+        <ul>
+          <li><span class="c">✓</span> Up to 15K homeowners contacted/mo</li>
+          <li><span class="c">✓</span> Dedicated warmed domains &amp; inboxes</li>
+          <li><span class="c">✓</span> Copywriting &amp; campaign management</li>
+          <li><span class="c">✓</span> Reply handling &amp; appointment booking</li>
+          <li><span class="c">✓</span> Market exclusivity</li>
+        </ul>
+        <a href="#start" class="btn btn-dark">Book a call</a>
+      </div>
+
+      <div class="plan feat">
+        <div class="flag">Most popular</div>
+        <div class="pn">Scale</div>
+        <div class="pr">$5,500<span>/mo</span></div>
+        <div class="pd">Multiple markets or offers, higher volume, faster ramp.</div>
+        <ul>
+          <li><span class="c">✓</span> Up to 50K homeowners contacted/mo</li>
+          <li><span class="c">✓</span> Multiple markets or offers tested</li>
+          <li><span class="c">✓</span> Expanded sending infrastructure</li>
+          <li><span class="c">✓</span> Priority reply handling &amp; booking</li>
+          <li><span class="c">✓</span> Dedicated strategist &amp; reporting</li>
+        </ul>
+        <a href="#start" class="btn btn-primary">Book a call</a>
+      </div>
+
+      <div class="plan">
+        <div class="pn">Enterprise</div>
+        <div class="pr">Custom</div>
+        <div class="pd">Franchises, brokerages, carriers &amp; multi-location.</div>
+        <ul>
+          <li><span class="c">✓</span> 100K+ homeowners contacted/mo</li>
+          <li><span class="c">✓</span> Per-location campaigns &amp; routing</li>
+          <li><span class="c">✓</span> Dedicated infrastructure &amp; team</li>
+          <li><span class="c">✓</span> CRM &amp; roster integrations</li>
+          <li><span class="c">✓</span> Custom SLAs &amp; reporting</li>
+        </ul>
+        <a href="#start" class="btn btn-dark">Talk to us</a>
+      </div>
+
+    </div>
+    <p class="price-foot">Sample pricing for layout — set your own tiers before launch. Want the self-serve version instead? <a href="neighborhood.html" style="color:var(--green);font-weight:650;text-decoration:underline">See Neighborhood</a> — from $400/mo.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Questions operators ask</span>
+      <h2>Straight answers.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>What's the difference between Prospect and Neighborhood? <span class="pm">+</span></summary>
+        <div class="a"><a href="neighborhood.html" style="color:var(--green-deep);text-decoration:underline">Neighborhood</a> is software from $400/mo — it fires automatically off work you already do, reaching the neighbors of every job, closing, or policy. Prospect is a done-for-you service from $3,000/mo — our team builds and runs a full outbound engine to win net-new customers across your entire market. Neighborhood works your backyard; Prospect goes and gets everyone else. Many operators run both.</div>
+      </details>
+      <details>
+        <summary>Will this burn my email domain? <span class="pm">+</span></summary>
+        <div class="a">No. We buy and warm dedicated sending domains for your campaigns and monitor them continuously. Your real business domain is never used for cold volume — that's the single biggest reason operators come to us instead of running it in-house.</div>
+      </details>
+      <details>
+        <summary>How fast do appointments start? <span class="pm">+</span></summary>
+        <div class="a">Infrastructure warmup takes about two weeks before campaigns go live at volume. Replies typically start landing within days of launch, and the pipeline builds from there as we test offers and scale sending.</div>
+      </details>
+      <details>
+        <summary>Do you work with my competitors? <span class="pm">+</span></summary>
+        <div class="a">No. We run one business per industry per market. When you're in, your market is off the table for anyone else running the same play — otherwise we'd be competing against ourselves in the same inboxes.</div>
+      </details>
+      <details>
+        <summary>Is cold-emailing homeowners compliant? <span class="pm">+</span></summary>
+        <div class="a">We operate under federal cold-email rules (CAN-SPAM) plus applicable state requirements, with unsubscribe handling and auto-suppression built into every send. Compliance is managed by us rather than left as your problem.</div>
+      </details>
+      <details>
+        <summary>Is there a contract? <span class="pm">+</span></summary>
+        <div class="a">We ask for an initial engagement long enough to build infrastructure, warm domains, and let campaigns produce — typically 90 days. After that it's month to month.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="block cta" id="start">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--lime)">Get started</span>
+    <h2>Let's see if your market is <em>open.</em></h2>
+    <p>We only run one business per industry per market. Book a call and we'll show you the homeowner counts and what the engine would look like for you.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn btn-primary btn-lg">Book a call →</a>
+      <a href="neighborhood.html" class="btn btn-ghost btn-lg">Prefer self-serve? See Neighborhood →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="logo"><span class="mark">H</span>Homefield</a>
+        <p>Prospect is your outbound customer-acquisition engine, done for you — data, infrastructure, copy, sending, replies, and booked appointments. From $3,000/mo.</p>
+      </div>
+      <div class="foot-links">
+        <a href="neighborhood.html">Neighborhood</a>
+        <a href="prospect.html">Prospect</a>
+        <a href="#industries">Industries</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Homefield. All rights reserved.</span>
+      <span>Outreach is sent in compliance with federal (CAN-SPAM) and applicable state rules.</span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

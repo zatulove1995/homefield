@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Homefield — AI neighborhood outreach that turns every job into the next</title>
-<meta name="description" content="Every time you serve a home, Homefield reaches the surrounding neighbors for you — automatically, from managed infrastructure so your domain stays clean, exclusive to you, and booked onto your calendar. Built for real estate agents and home services businesses.">
+<title>Homefield — Two ways to fill your calendar with homeowners</title>
+<meta name="description" content="Two homeowner-acquisition engines on one data backbone. Neighborhood turns every job you do into outreach to the surrounding homes. Prospect runs done-for-you cold outbound to acquire net-new customers at scale. Built for real estate agents, home services, and home insurance providers.">
 <style>
   :root{
     --ink:#0d1510;--ink-soft:#48524a;--paper:#f4f2ea;--paper-2:#eae7db;--card:#ffffff;--line:#ddd8c9;
@@ -44,7 +44,7 @@
   .dropdown:hover .ddtrigger{color:#fff}
   .ddtrigger .car{font-size:9px;transition:.16s}
   .dropdown:hover .ddtrigger .car{transform:rotate(180deg)}
-  .ddmenu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(6px);background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;min-width:250px;opacity:0;visibility:hidden;transition:.16s ease;z-index:60}
+  .ddmenu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(6px);background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;min-width:280px;opacity:0;visibility:hidden;transition:.16s ease;z-index:60}
   .ddmenu::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
   .dropdown:hover .ddmenu,.dropdown:focus-within .ddmenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
   .ddmenu a{display:block;padding:11px 14px;border-radius:9px;color:var(--ink);font-size:14.5px;font-weight:650}
@@ -53,11 +53,11 @@
   @media(max-width:900px){.nav-links{display:none}.nav-cta .signin{display:none}}
 
   .hero{padding:82px 0 30px;text-align:center;background:radial-gradient(120% 90% at 50% -10%,#fbfaf5 0%,var(--paper) 55%)}
-  .hero h1{font-size:clamp(44px,8vw,92px);letter-spacing:-.045em;margin:20px auto 26px;max-width:16ch}
+  .hero h1{font-size:clamp(42px,7.4vw,86px);letter-spacing:-.045em;margin:20px auto 26px;max-width:16ch}
   .hero h1 em{font-style:italic;color:var(--green)}
-  .hero p.sub{font-size:clamp(17px,2.2vw,21px);color:var(--ink-soft);max-width:660px;margin:0 auto 6px}
+  .hero p.sub{font-size:clamp(17px,2.2vw,21px);color:var(--ink-soft);max-width:680px;margin:0 auto}
 
-  .choose{padding:44px 0 30px}
+  .choose{padding:44px 0 20px}
   .choose .divider{display:flex;align-items:center;gap:16px;justify-content:center;margin:0 auto 34px;max-width:520px;color:var(--ink-soft)}
   .choose .divider::before,.choose .divider::after{content:"";height:1px;background:var(--line);flex:1}
   .ccards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
@@ -70,7 +70,9 @@
   .ccard.dark .ic{background:#1c4b31}
   .ccard .kick{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
   .ccard.dark .kick{color:var(--lime)}
-  .ccard h3{font-size:28px;letter-spacing:-.03em;margin-bottom:10px}
+  .ccard h3{font-size:28px;letter-spacing:-.03em;margin-bottom:6px}
+  .ccard .price{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:12px}
+  .ccard.dark .price{color:#9dc2a7}
   .ccard p{font-size:15.5px;color:var(--ink-soft);margin-bottom:20px}
   .ccard.dark p{color:#a9c6b1}
   .ccard ul{list-style:none;margin-bottom:26px;flex:1}
@@ -80,16 +82,20 @@
   .ccard .btn{align-self:flex-start}
   @media(max-width:820px){.ccards{grid-template-columns:1fr}}
 
-  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
-  .strip-inner{padding:22px 0;text-align:center}
-  .strip .lead{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
-  .strip .logos{display:flex;gap:34px;justify-content:center;align-items:center;flex-wrap:wrap;font-weight:800;font-size:17px;letter-spacing:-.01em;color:#9aa39a}
-  .strip .logos span{opacity:.85}
-
-  section.block{padding:92px 0}
-  .sec-head{max-width:740px;margin:0 auto 52px;text-align:center}
-  .sec-head h2{font-size:clamp(32px,4.6vw,50px);margin:14px 0 16px;letter-spacing:-.035em}
+  section.block{padding:84px 0}
+  .sec-head{max-width:740px;margin:0 auto 48px;text-align:center}
+  .sec-head h2{font-size:clamp(30px,4.4vw,46px);margin:14px 0 16px;letter-spacing:-.035em}
   .sec-head p{font-size:18px;color:var(--ink-soft)}
+
+  /* INDUSTRIES */
+  .inds{background:var(--paper-2)}
+  .indgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .ind{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+  .ind .ic{font-size:30px;margin-bottom:14px}
+  .ind h3{font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
+  .ind p{font-size:14.5px;color:var(--ink-soft)}
+  @media(max-width:820px){.indgrid{grid-template-columns:1fr}}
+
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .pillar{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
   .pillar .pic{width:46px;height:46px;border-radius:12px;background:var(--forest);color:var(--lime);display:grid;place-items:center;font-size:22px;margin-bottom:18px}
@@ -101,7 +107,7 @@
   .cta{background:var(--forest);color:#fff;text-align:center}
   .cta h2{font-size:clamp(34px,5vw,58px);letter-spacing:-.04em;margin-bottom:18px}
   .cta h2 em{font-style:italic;color:var(--lime)}
-  .cta p{color:#a9c6b1;font-size:19px;max-width:520px;margin:0 auto 30px}
+  .cta p{color:#a9c6b1;font-size:19px;max-width:540px;margin:0 auto 30px}
   .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
   .cta .btn-ghost{color:#fff;border-color:#2a6644}
   .cta .btn-ghost:hover{border-color:#fff;background:transparent}
@@ -109,7 +115,7 @@
   footer{background:#0a130d;color:#8fb79b;padding:52px 0 34px}
   .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;margin-bottom:32px}
   .foot-grid .logo{color:#fff}
-  .foot-grid p{font-size:14px;color:#7c9a84;max-width:320px;margin-top:12px}
+  .foot-grid p{font-size:14px;color:#7c9a84;max-width:340px;margin-top:12px}
   .foot-links{display:flex;gap:26px;font-size:14px;flex-wrap:wrap}
   .foot-links a:hover{color:#fff}
   .foot-bottom{border-top:1px solid #17281c;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#5f7a67}
@@ -123,14 +129,14 @@
     <a href="index.html" class="logo"><span class="mark">H</span>Homefield</a>
     <nav class="nav-links">
       <div class="dropdown">
-        <button class="ddtrigger" aria-haspopup="true">Product <span class="car">▾</span></button>
+        <button class="ddtrigger" aria-haspopup="true">Products <span class="car">▾</span></button>
         <div class="ddmenu">
-          <a href="agents.html">For real estate agents<small>Every listing &amp; closing → the neighbors</small></a>
-          <a href="home-services.html">For home services<small>Every completed job → the neighbors</small></a>
+          <a href="neighborhood.html">Neighborhood<small>Prospect the neighbors of every job you do</small></a>
+          <a href="prospect.html">Prospect<small>Done-for-you outbound customer acquisition</small></a>
         </div>
       </div>
+      <a href="#industries">Industries</a>
       <a href="#why">Why Homefield</a>
-      <a href="#choose">Pricing</a>
     </nav>
     <div class="nav-cta">
       <a href="#" class="signin">Sign in</a>
@@ -142,64 +148,85 @@
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">AI neighborhood outreach</span>
-    <h1>Serve one home. <em>Win the whole street.</em></h1>
-    <p class="sub">Every time you serve a home, Homefield reaches the surrounding neighbors for you — automatically, from our infrastructure so your domain stays clean, exclusive to you, and booked onto your calendar.</p>
+    <span class="eyebrow">Homeowner acquisition, done two ways</span>
+    <h1>Two engines. <em>Every homeowner in your market.</em></h1>
+    <p class="sub">Homefield fills your calendar with homeowners two ways — by turning every job you already do into outreach to the neighbors, and by running done-for-you cold outbound to win net-new customers at scale. Built for real estate agents, home services, and home insurance providers.</p>
   </div>
 </section>
 
-<!-- CHOOSE -->
+<!-- CHOOSE PRODUCT -->
 <section class="choose" id="choose">
   <div class="wrap">
-    <div class="divider mono">Pick your product</div>
+    <div class="divider mono">Pick your engine</div>
     <div class="ccards">
 
-      <a class="ccard light" href="agents.html">
-        <div class="ic">🏡</div>
-        <div class="kick">For real estate agents</div>
-        <h3>Homefield for Agents</h3>
-        <p>The moment you list or close a home, Scout circle-prospects the nearest neighbors with a just-listed / just-sold campaign — and books the appointments.</p>
+      <a class="ccard light" href="neighborhood.html">
+        <div class="ic">📍</div>
+        <div class="kick">Product 01</div>
+        <h3>Neighborhood</h3>
+        <div class="price">From $400 / mo</div>
+        <p>Every time you serve, close, or write business at a home, we automatically prospect the surrounding neighbors — personalized, exclusive to you, and booked onto your calendar.</p>
         <ul>
-          <li><span class="c">✓</span> Triggered by your MLS listings &amp; closings</li>
-          <li><span class="c">✓</span> Reaches 250–1,000 neighbors per event</li>
-          <li><span class="c">✓</span> Exclusive area, domain-safe, books to your calendar</li>
+          <li><span class="c">✓</span> Triggered by your own jobs, closings &amp; policies</li>
+          <li><span class="c">✓</span> Reaches the nearest 50–1,000 neighbors per event</li>
+          <li><span class="c">✓</span> Exclusive area, domain-safe, books appointments</li>
         </ul>
-        <span class="btn btn-dark">Explore for Agents →</span>
+        <span class="btn btn-dark">Explore Neighborhood →</span>
       </a>
 
-      <a class="ccard dark" href="home-services.html">
-        <div class="ic">🔧</div>
-        <div class="kick">For home services</div>
-        <h3>Homefield for Home Services</h3>
-        <p>The moment you finish a job, Scout reaches the surrounding neighbors with a "we were just next door" campaign — and books the estimates.</p>
+      <a class="ccard dark" href="prospect.html">
+        <div class="ic">🚀</div>
+        <div class="kick">Product 02</div>
+        <h3>Prospect</h3>
+        <div class="price">From $3,000 / mo · done-for-you</div>
+        <p>We build and run your entire outbound customer-acquisition engine — data, warmed infrastructure, copy, sending, reply handling, and booking. You get appointments, not a tool.</p>
         <ul>
-          <li><span class="c">✓</span> Triggered by your completed jobs</li>
-          <li><span class="c">✓</span> Reaches 50–500 neighbors per job</li>
-          <li><span class="c">✓</span> One trade per area, domain-safe, books to your calendar</li>
+          <li><span class="c">✓</span> Cold outbound to homeowners in your market, at scale</li>
+          <li><span class="c">✓</span> Fully managed — we run it, you close</li>
+          <li><span class="c">✓</span> Warm replies qualified &amp; booked to your calendar</li>
         </ul>
-        <span class="btn btn-primary">Explore for Home Services →</span>
+        <span class="btn btn-primary">Explore Prospect →</span>
       </a>
 
     </div>
+    <p style="text-align:center;color:var(--ink-soft);font-size:14.5px;margin-top:22px">Most operators run <b>Neighborhood</b> on their own backyard and add <b>Prospect</b> to go get net-new customers at scale.</p>
   </div>
 </section>
 
-<!-- LOGO STRIP -->
-<div class="strip">
-  <div class="wrap strip-inner">
-    <div class="lead">3,200+ local businesses turn every job into the next on Homefield</div>
-    <div class="logos">
-      <span>REAL ESTATE</span><span>ROOFING</span><span>HVAC</span><span>PLUMBING</span><span>LANDSCAPING</span><span>SOLAR</span>
+<!-- INDUSTRIES -->
+<section class="block inds" id="industries">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Who it's for</span>
+      <h2>Built for the businesses that live house by house.</h2>
+      <p>Same homeowner data and sending engine underneath — tuned to how each industry wins.</p>
+    </div>
+    <div class="indgrid">
+      <div class="ind">
+        <div class="ic">🏡</div>
+        <h3>Real estate agents</h3>
+        <p>List or close a home and prospect the surrounding neighbors — or run outbound to find sellers ready to list across your whole market.</p>
+      </div>
+      <div class="ind">
+        <div class="ic">🔧</div>
+        <h3>Home services</h3>
+        <p>Finish a job and reach the block with "we were just next door" — or run outbound to homeowners who fit your ideal job by home age, value, and need.</p>
+      </div>
+      <div class="ind">
+        <div class="ic">🛡️</div>
+        <h3>Home insurance providers</h3>
+        <p>Write a policy or work a storm-hit area and prospect the neighbors — or run outbound to homeowners by renewal window and profile, and book quote appointments.</p>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- PILLARS -->
 <section class="block" id="why">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Why Homefield</span>
-      <h2>Same engine. Three things a mailer can't do.</h2>
+      <h2>Same engine. Three things a mail-merge can't do.</h2>
       <p>Whichever product you run, the outreach lands, stays yours, and turns into booked appointments.</p>
     </div>
     <div class="pillars">
@@ -212,7 +239,7 @@
       <div class="pillar">
         <div class="pic">🔒</div>
         <h3>Exclusive to you</h3>
-        <p>We lock your area and dedupe across the whole network. The neighbor you just earned won't get the same campaign from three competitors the same week.</p>
+        <p>We lock your area and dedupe across the whole network. The homeowner you just earned won't get the same campaign from three competitors the same week.</p>
         <span class="tag">Area exclusivity</span>
       </div>
       <div class="pillar">
@@ -229,11 +256,11 @@
 <section class="block cta">
   <div class="wrap">
     <span class="eyebrow" style="color:var(--lime)">Get started</span>
-    <h2>Which one are you? <em>Pick your product.</em></h2>
-    <p>Choose your world and pull your neighborhood count in 6 seconds — before you pay a dime.</p>
+    <h2>Pick your engine. <em>Fill your calendar.</em></h2>
+    <p>Start with the neighbors you're already earning, or hand us the whole outbound machine. Pull your homeowner count in 6 seconds — before you pay a dime.</p>
     <div class="cta-actions">
-      <a href="agents.html" class="btn btn-primary btn-lg">I'm a real estate agent →</a>
-      <a href="home-services.html" class="btn btn-ghost btn-lg">I run a home services business →</a>
+      <a href="neighborhood.html" class="btn btn-primary btn-lg">Explore Neighborhood →</a>
+      <a href="prospect.html" class="btn btn-ghost btn-lg">Explore Prospect →</a>
     </div>
   </div>
 </section>
@@ -244,13 +271,13 @@
     <div class="foot-grid">
       <div>
         <a href="index.html" class="logo"><span class="mark">H</span>Homefield</a>
-        <p>AI neighborhood outreach for real estate agents and home services businesses. Every job you finish turns into outreach to the neighbors — sent from our infrastructure, so your area stays yours.</p>
+        <p>Homeowner acquisition for real estate agents, home services, and home insurance providers. Turn every job into the neighbors, or run done-for-you outbound at scale — all sent from our infrastructure, so your domain stays clean.</p>
       </div>
       <div class="foot-links">
-        <a href="agents.html">For Agents</a>
-        <a href="home-services.html">For Home Services</a>
+        <a href="neighborhood.html">Neighborhood</a>
+        <a href="prospect.html">Prospect</a>
+        <a href="#industries">Industries</a>
         <a href="#why">Why Homefield</a>
-        <a href="#choose">Pricing</a>
       </div>
     </div>
     <div class="foot-bottom">
