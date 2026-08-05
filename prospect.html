@@ -4,165 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prospect — Homefield</title>
-<meta name="description" content="We build and run your entire outbound customer-acquisition engine — homeowner data, warmed infrastructure, copy, sending, reply handling, and booking. You get appointments on your calendar, not another tool to learn. From $3,000/mo.">
-<style>
-  :root{
-    --ink:#0d1510;--ink-soft:#48524a;--paper:#f4f2ea;--paper-2:#eae7db;--card:#ffffff;--line:#ddd8c9;
-    --forest:#123a26;--green:#1a8047;--green-deep:#116035;--green-soft:#e4f1e6;--lime:#7ed957;--lime-ink:#0d1510;
-    --shadow:0 1px 2px rgba(13,21,16,.05),0 16px 40px rgba(13,21,16,.07);--radius:18px;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,"Helvetica Neue",Arial,sans-serif;
-    --mono:"SF Mono",ui-monospace,"Roboto Mono",Menlo,Consolas,monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-  a{color:inherit;text-decoration:none}
-  .mono{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
-  .eyebrow{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green);display:inline-block}
-  h1,h2,h3{font-weight:800;line-height:1.02;letter-spacing:-.03em}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:15px;padding:14px 24px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.18s ease;white-space:nowrap}
-  .btn-primary{background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
-  .btn-primary:hover{filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 8px 20px rgba(126,217,87,.35)}
-  .btn-dark{background:var(--forest);color:#fff;border-color:var(--forest)}
-  .btn-dark:hover{background:#0d2c1c;transform:translateY(-1px)}
-  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-  .btn-ghost:hover{border-color:var(--ink);background:#fff}
-  .btn-lg{padding:17px 32px;font-size:16px}
-
-  /* NAV — identical on every page */
-  header.nav{position:sticky;top:0;z-index:50;background:var(--forest);color:#eef3ee}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
-  .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:20px;letter-spacing:-.03em;color:#fff}
-  .logo .mark{width:26px;height:26px;border-radius:7px;background:var(--lime);display:grid;place-items:center;color:var(--forest);font-weight:900;font-size:15px}
-  .nav-links{display:flex;gap:28px;align-items:center;font-size:14.5px;font-weight:550;color:#bcd0c1}
-  .nav-links a:hover{color:#fff}
-  .nav-cta{display:flex;gap:12px;align-items:center}
-  .nav-cta .signin{font-size:14.5px;color:#bcd0c1;font-weight:550}
-  .nav-cta .signin:hover{color:#fff}
-  .dropdown{position:relative}
-  .ddtrigger{background:none;border:none;font:inherit;color:#bcd0c1;font-size:14.5px;font-weight:550;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:0}
-  .dropdown:hover .ddtrigger{color:#fff}
-  .ddtrigger .car{font-size:9px;transition:.16s}
-  .dropdown:hover .ddtrigger .car{transform:rotate(180deg)}
-  .ddmenu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(6px);background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:8px;min-width:300px;opacity:0;visibility:hidden;transition:.16s ease;z-index:60}
-  .ddmenu::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
-  .dropdown:hover .ddmenu,.dropdown:focus-within .ddmenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-  .ddmenu a{display:block;padding:11px 14px;border-radius:9px;color:var(--ink);font-size:14.5px;font-weight:650}
-  .ddmenu a small{display:block;font-size:12px;color:var(--ink-soft);font-weight:400;margin-top:1px}
-  .ddmenu a:hover{background:var(--green-soft)}
-  .ddmenu a.active{background:var(--paper-2)}
-  @media(max-width:940px){.nav-links{display:none}.nav-cta .signin{display:none}}
-
-  .hero{padding:74px 0 40px;text-align:center;background:radial-gradient(120% 90% at 50% -10%,#fbfaf5 0%,var(--paper) 55%)}
-  .ptag{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:6px 13px;border-radius:999px;background:var(--green-soft);color:var(--green-deep);margin-bottom:16px}
-  .hero h1{font-size:clamp(42px,7.6vw,88px);letter-spacing:-.045em;margin:0 auto 26px;max-width:16ch}
-  .hero h1 em{font-style:italic;color:var(--green)}
-  .hero p.sub{font-size:clamp(17px,2.2vw,21px);color:var(--ink-soft);max-width:660px;margin:0 auto 32px}
-  .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .hero-sub2{margin-top:18px;font-size:13.5px;color:var(--ink-soft)}
-
-  .dfy{padding:8px 0 80px}
-  .dfybox{max-width:900px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
-  .dfyhead{padding:22px 30px;border-bottom:1px solid var(--line);background:var(--paper-2);display:flex;align-items:center;gap:11px;flex-wrap:wrap}
-  .dfyhead .live{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(126,217,87,.25);animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(126,217,87,.25)}50%{box-shadow:0 0 0 7px rgba(126,217,87,.08)}}
-  .dfyhead .t{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-  .dfyhead .pill{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-deep);background:var(--green-soft);padding:6px 12px;border-radius:999px;font-weight:700}
-  .dfycols{display:grid;grid-template-columns:1fr 1fr}
-  .dfycol{padding:28px 30px}
-  .dfycol:first-child{border-right:1px solid var(--line)}
-  .dfycol h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
-  .dfycol.us h4{color:var(--green)}
-  .dfycol.them h4{color:var(--ink-soft)}
-  .dfycol ul{list-style:none}
-  .dfycol li{display:flex;gap:10px;padding:9px 0;font-size:14.5px;border-bottom:1px solid var(--line)}
-  .dfycol li:last-child{border:none}
-  .dfycol.us li .c{color:var(--green);font-weight:800;flex:0 0 auto}
-  .dfycol.them li{color:var(--ink-soft)}
-  .dfycol.them li .c{color:#b23b34;font-weight:800;flex:0 0 auto}
-  @media(max-width:860px){.dfycols{grid-template-columns:1fr}.dfycol:first-child{border-right:none;border-bottom:1px solid var(--line)}}
-
-  section.block{padding:88px 0}
-  .sec-head{max-width:760px;margin-bottom:46px}
-  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
-  .sec-head h2{font-size:clamp(30px,4.4vw,46px);margin:14px 0 16px;letter-spacing:-.035em}
-  .sec-head p{font-size:18px;color:var(--ink-soft)}
-
-  .flows{background:var(--forest);color:#e6efe7}
-  .flows .eyebrow{color:var(--lime)}
-  .flows .sec-head h2{color:#fff}
-  .flows .sec-head p{color:#a9c6b1}
-  .steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-  .st{background:#0f3020;border:1px solid #1f5237;border-radius:var(--radius);padding:26px}
-  .st .num{width:32px;height:32px;border-radius:9px;background:#17402a;color:var(--lime);display:grid;place-items:center;font-weight:800;font-size:14px;font-family:var(--mono);margin-bottom:14px}
-  .st b{font-size:16.5px;display:block;margin-bottom:6px;letter-spacing:-.01em;color:#fff}
-  .st p{font-size:14px;color:#a9c6b1}
-  @media(max-width:900px){.steps4{grid-template-columns:1fr 1fr}}
-  @media(max-width:560px){.steps4{grid-template-columns:1fr}}
-
-  .trig{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);display:flex;flex-direction:column}
-  .tcard .ic{font-size:26px;margin-bottom:12px}
-  .tcard .tline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:5px 10px;border-radius:999px;display:inline-block;margin-bottom:11px;align-self:flex-start}
-  .tcard h3{font-size:18px;letter-spacing:-.02em;margin-bottom:8px}
-  .tcard p{font-size:14.5px;color:var(--ink-soft)}
-  @media(max-width:860px){.trig{grid-template-columns:1fr}}
-
-  /* INSURANCE SPOTLIGHT (Maverick-inspired) */
-  .ins{background:var(--paper-2)}
-  .inswrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
-  .insfeat{list-style:none}
-  .insfeat li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
-  .insfeat li:last-child{border:none}
-  .insfeat .ic{flex:0 0 auto;width:32px;height:32px;border-radius:9px;background:var(--green-soft);color:var(--green-deep);display:grid;place-items:center;font-size:15px;font-weight:800}
-  .insfeat b{font-size:16.5px;display:block;margin-bottom:3px}
-  .insfeat p{font-size:14.5px;color:var(--ink-soft)}
-  .instable{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-  .instable .th{padding:16px 22px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);background:var(--paper-2)}
-  .insrow{display:flex;align-items:flex-start;gap:14px;padding:15px 22px;border-bottom:1px solid var(--line)}
-  .insrow:last-child{border:none}
-  .insrow .k{flex:0 0 128px;font-size:13.5px;color:var(--ink-soft)}
-  .insrow .v{flex:1;font-size:14.5px;font-weight:650}
-  .insrow .v small{display:block;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-top:2px}
-  .insrow .v.bad{color:#b23b34;font-weight:600}
-  @media(max-width:860px){.inswrap{grid-template-columns:1fr;gap:32px}}
-
-  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .pillar{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
-  .pillar .pic{width:46px;height:46px;border-radius:12px;background:var(--forest);color:var(--lime);display:grid;place-items:center;font-size:22px;margin-bottom:18px}
-  .pillar h3{font-size:21px;letter-spacing:-.02em;margin-bottom:10px}
-  .pillar p{font-size:15px;color:var(--ink-soft)}
-  .pillar .tag{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-soft);padding:5px 10px;border-radius:999px}
-  @media(max-width:860px){.pillars{grid-template-columns:1fr}}
-
-  .ptease{background:var(--paper-2);text-align:center}
-  .ptease .box{max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:38px;box-shadow:var(--shadow)}
-  .ptease .from{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
-  .ptease .big{font-size:52px;font-weight:800;letter-spacing:-.04em;margin:8px 0 4px}
-  .ptease .big span{font-size:17px;font-weight:600;color:var(--ink-soft)}
-  .ptease p{font-size:16px;color:var(--ink-soft);margin-bottom:24px}
-
-  .cta{background:var(--forest);color:#fff;text-align:center}
-  .cta h2{font-size:clamp(34px,5vw,58px);letter-spacing:-.04em;margin-bottom:18px}
-  .cta h2 em{font-style:italic;color:var(--lime)}
-  .cta p{color:#a9c6b1;font-size:19px;max-width:540px;margin:0 auto 30px}
-  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .cta .btn-ghost{color:#fff;border-color:#2a6644}
-  .cta .btn-ghost:hover{border-color:#fff;background:transparent}
-
-  footer{background:#0a130d;color:#8fb79b;padding:52px 0 34px}
-  .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;margin-bottom:32px}
-  .foot-grid .logo{color:#fff}
-  .foot-grid p{font-size:14px;color:#7c9a84;max-width:340px;margin-top:12px}
-  .foot-links{display:flex;gap:26px;font-size:14px;flex-wrap:wrap}
-  .foot-links a:hover{color:#fff}
-  .foot-bottom{border-top:1px solid #17281c;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#5f7a67}
-</style>
+<meta name="description" content="Prospect is the Homefield add-on that wins net-new customers across your whole market. We build and run the entire outbound engine — data, warmed infrastructure, copy, sending, reply handling, and booking. From $3,000/mo.">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- NAV (identical on every page) -->
+<!-- NAV -->
 <header class="nav">
   <div class="wrap nav-inner">
     <a href="index.html" class="logo"><span class="mark">H</span>Homefield</a>
@@ -170,18 +17,17 @@
       <div class="dropdown">
         <button class="ddtrigger" aria-haspopup="true">Products <span class="car">▾</span></button>
         <div class="ddmenu">
-          <a href="neighborhood.html">Neighborhood<small>Every job you do → the neighbors · from $400/mo</small></a>
-          <a href="prospect.html" class="active">Prospect<small>Done-for-you outbound · from $3,000/mo</small></a>
+          <a href="index.html">Neighborhood<small>Every job you do → the neighbors · from $400/mo</small></a>
+          <a href="prospect.html" class="active">Prospect<small>Add-on · done-for-you outbound · from $3,000/mo</small></a>
         </div>
       </div>
-      <a href="index.html#industries">Industries</a>
-      <a href="index.html#why">Why Homefield</a>
-      <a href="index.html#pricing">Pricing</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="industries.html">Industries</a>
+      <a href="why.html">Why Homefield</a>
+      <a href="pricing.html">Pricing</a>
     </nav>
     <div class="nav-cta">
       <a href="#" class="signin">Sign in</a>
-      <a href="index.html#pricing" class="btn btn-primary">Get started</a>
+      <a href="pricing.html" class="btn btn-primary">Get started</a>
     </div>
   </div>
 </header>
@@ -189,9 +35,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <span class="ptag">🚀 Product 02 · Done-for-you · from $3,000/mo</span>
+    <span class="ptag">🚀 Add-on · Done-for-you · from $3,000/mo</span>
     <h1>We run the outbound. <em>You close the deals.</em></h1>
-    <p class="sub">Prospect is your entire customer-acquisition engine, done for you. We build the homeowner list, warm the infrastructure, write the copy, send the campaigns, handle every reply, and put booked appointments on your calendar. You just show up.</p>
+    <p class="sub">Neighborhood works the homes around the jobs you're already doing. Prospect goes and gets everyone else — our team builds and runs your entire outbound engine and puts booked appointments on your calendar.</p>
     <div class="hero-actions">
       <a href="#start" class="btn btn-primary btn-lg">Book a call →</a>
       <a href="#how" class="btn btn-ghost btn-lg">See what we run</a>
@@ -305,41 +151,11 @@
   </div>
 </section>
 
-<!-- INSURANCE SPOTLIGHT (Maverick-inspired) -->
-<section class="block ins">
+<!-- WHY PROSPECT -->
+<section class="block tint">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="eyebrow">For insurance agencies</span>
-      <h2>Quote requests in their own words. Not another shared lead.</h2>
-      <p>The whole game in home insurance is timing. We reach homeowners in the window that actually matters — and what lands in your inbox is a real conversation, not a form fill four other agencies also bought.</p>
-    </div>
-    <div class="inswrap">
-      <div>
-        <ul class="insfeat">
-          <li><span class="ic">⏱</span><div><b>Timed to the renewal window</b><p>We reach homeowners 30–45 days before their renewal date — while they're still deciding, not the week after they've signed for another year.</p></div></li>
-          <li><span class="ic">💬</span><div><b>They ask you for the quote</b><p>Every lead is a homeowner who replied in their own words asking about coverage — not a cold form fill they don't remember submitting.</p></div></li>
-          <li><span class="ic">🔒</span><div><b>Your ZIPs, locked to your agency</b><p>Claim your territory and it comes off the market. We never resell a homeowner, and we don't run a competing agency in your ZIPs.</p></div></li>
-          <li><span class="ic">✉️</span><div><b>Branded as your agency</b><p>Campaigns go out in your agency's name from our infrastructure — so the homeowner is replying to you, not to a lead vendor.</p></div></li>
-        </ul>
-      </div>
-      <div class="instable">
-        <div class="th">Homefield vs. how you buy leads today</div>
-        <div class="insrow"><div class="k">Exclusivity</div><div class="v">Yours alone, locked by ZIP<small>Never resold</small></div></div>
-        <div class="insrow"><div class="k">Shared lead vendors</div><div class="v bad">Sold to 3–5 agencies<small>EverQuote, QuoteWizard, MediaAlpha</small></div></div>
-        <div class="insrow"><div class="k">Timing</div><div class="v">30–45 days pre-renewal<small>When they can actually switch</small></div></div>
-        <div class="insrow"><div class="k">Direct mail</div><div class="v bad">Weeks to land, no reply loop<small>And you pay per piece</small></div></div>
-        <div class="insrow"><div class="k">What you get</div><div class="v">A reply asking for a quote<small>Booked to your calendar</small></div></div>
-        <div class="insrow"><div class="k">Your domain</div><div class="v">Never used for cold volume<small>We send from ours</small></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section class="block">
-  <div class="wrap">
-    <div class="sec-head center">
-      <span class="eyebrow">Why Homefield</span>
+      <span class="eyebrow">Why Prospect</span>
       <h2>Not an agency that "does email."</h2>
       <p>We own the infrastructure and the data — which is why this works when a freelancer with a tool subscription doesn't.</p>
     </div>
@@ -366,14 +182,14 @@
   </div>
 </section>
 
-<!-- PRICING TEASER → main site -->
+<!-- PRICING TEASER -->
 <section class="block ptease">
   <div class="wrap">
     <div class="box">
-      <div class="from">Prospect starts at</div>
+      <div class="from">Prospect add-on starts at</div>
       <div class="big">$3,000<span>/mo</span></div>
-      <p>Flat monthly retainer — infrastructure, data, sending, reply handling, and booking all included. Full plans and Neighborhood pricing live on one page.</p>
-      <a href="index.html#pricing" class="btn btn-primary btn-lg">See all pricing →</a>
+      <p>Flat monthly retainer — infrastructure, data, sending, reply handling, and booking all included.</p>
+      <a href="pricing.html" class="btn btn-primary btn-lg">See full pricing →</a>
     </div>
   </div>
 </section>
@@ -386,7 +202,7 @@
     <p>We only run one business per industry per market. Book a call and we'll show you the homeowner counts and what the engine would look like for you.</p>
     <div class="cta-actions">
       <a href="#" class="btn btn-primary btn-lg">Book a call →</a>
-      <a href="neighborhood.html" class="btn btn-ghost btn-lg">Prefer self-serve? See Neighborhood →</a>
+      <a href="index.html" class="btn btn-ghost btn-lg">Start with Neighborhood instead →</a>
     </div>
   </div>
 </section>
@@ -397,15 +213,14 @@
     <div class="foot-grid">
       <div>
         <a href="index.html" class="logo"><span class="mark">H</span>Homefield</a>
-        <p>Prospect is your outbound customer-acquisition engine, done for you — data, infrastructure, copy, sending, replies, and booked appointments.</p>
+        <p>Prospect is the Homefield add-on that runs your outbound customer acquisition end to end — data, infrastructure, copy, sending, replies, and booked appointments.</p>
       </div>
       <div class="foot-links">
-        <a href="neighborhood.html">Neighborhood</a>
+        <a href="index.html">Neighborhood</a>
         <a href="prospect.html">Prospect</a>
-        <a href="index.html#industries">Industries</a>
-        <a href="index.html#why">Why Homefield</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="index.html#faq">FAQ</a>
+        <a href="industries.html">Industries</a>
+        <a href="why.html">Why Homefield</a>
+        <a href="pricing.html">Pricing</a>
       </div>
     </div>
     <div class="foot-bottom">
