@@ -242,6 +242,24 @@ section.block{padding:88px 0}
 @media(max-width:860px){.inswrap{grid-template-columns:1fr;gap:32px}}
 
 .minitag{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--green-soft);color:var(--green-deep);padding:2px 7px;border-radius:999px;vertical-align:middle;font-weight:700}
+/* ===== COMPACT ADD-ON BAR ===== */
+.addonbar{background:var(--forest);color:#e6efe7;padding:34px 0}
+.addonbar-inner{display:flex;align-items:center;gap:32px;justify-content:space-between;flex-wrap:wrap}
+.addonbar-inner > div{flex:1 1 380px;min-width:0}
+.addonbar h3{font-size:24px;color:#fff;letter-spacing:-.025em;margin:8px 0 6px}
+.addonbar p{font-size:15.5px;color:#a9c6b1}
+.addonbar p b{color:#fff}
+.addonbar .btn{flex:0 0 auto}
+
+/* ===== INDUSTRY PILLS (high level, home page) ===== */
+.indpills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto}
+.indpill{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px;box-shadow:var(--shadow);transition:.16s ease;text-align:center}
+.indpill:hover{transform:translateY(-3px);border-color:var(--green)}
+.indpill .ic{font-size:28px;display:block;margin-bottom:12px}
+.indpill b{display:block;font-size:17.5px;letter-spacing:-.02em;margin-bottom:5px}
+.indpill span{display:block;font-size:14px;color:var(--ink-soft);line-height:1.4}
+@media(max-width:760px){.indpills{grid-template-columns:1fr;gap:14px}.indpill{text-align:left;display:flex;align-items:center;gap:16px;padding:18px 20px}.indpill .ic{margin-bottom:0;font-size:24px}}
+
 /* ===== MINI COMPARE (compact cost + reply rate) ===== */
 .minicompare{max-width:600px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
 .mcrow{display:grid;grid-template-columns:1fr 104px 104px;align-items:center;gap:12px;padding:15px 22px;border-top:1px solid var(--line)}
