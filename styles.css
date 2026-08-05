@@ -87,6 +87,30 @@ section.block{padding:88px 0}
 .card1 li .c{color:var(--green);font-weight:800;flex:0 0 auto}
 .card1 .btn{width:100%;justify-content:center}
 
+/* ===== EMAIL MOCKUP ===== */
+.mailwrap{max-width:660px;margin:0 auto}
+.mailcard{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.mailtop{display:flex;align-items:center;gap:11px;padding:15px 20px;border-bottom:1px solid var(--line);background:var(--paper-2)}
+.mailtop .av{width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;flex:0 0 auto}
+.mailtop .who{font-size:14px;line-height:1.35;min-width:0}
+.mailtop .who b{font-weight:700}
+.mailtop .who span{display:block;color:var(--ink-soft);font-size:12.5px}
+.mailtop .sent{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-deep);background:var(--green-soft);padding:5px 10px;border-radius:999px;font-weight:700;white-space:nowrap}
+.mailsub{padding:15px 20px 0;font-size:15.5px;font-weight:700}
+.mailbody{padding:10px 20px 18px;font-size:15px;color:var(--ink-soft)}
+.mailbody p{margin-bottom:11px}
+.mailbody p:last-child{margin-bottom:0}
+.mailreply{margin:0 20px 18px;background:var(--green-soft);border-radius:14px;padding:15px 17px}
+.mailreply .rl{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-deep);font-weight:700;margin-bottom:6px}
+.mailreply em{font-style:italic;color:var(--ink);font-size:15px}
+.mailbooked{display:flex;align-items:center;gap:10px;padding:14px 20px;border-top:1px solid var(--line);background:var(--forest);color:#fff;font-size:14px;font-weight:650}
+.mailbooked .bi{width:24px;height:24px;border-radius:7px;background:var(--lime);color:var(--forest);display:grid;place-items:center;font-size:13px;font-weight:900;flex:0 0 auto}
+.mailbooked span{color:#a9c6b1;font-weight:400;margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.mailsteps{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.mailsteps b{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--card);border:1px solid var(--line);color:var(--ink-soft);padding:8px 14px;border-radius:999px;font-weight:600}
+.mailsteps b.hi{background:var(--green-soft);border-color:#cfe6d6;color:var(--green-deep)}
+@media(max-width:560px){.mailtop .sent{display:none}}
+
 /* ===== LOGO STRIP ===== */
 .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
 .strip-inner{padding:22px 0;text-align:center}
@@ -237,6 +261,32 @@ section.block{padding:88px 0}
   .costrow{grid-template-columns:1fr 78px;gap:12px}
   .costrow .cbar{grid-column:1/-1;height:26px}
 }
+
+.minitag{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--green-soft);color:var(--green-deep);padding:2px 7px;border-radius:999px;vertical-align:middle;font-weight:700}
+
+/* ===== AT-A-GLANCE STAT ROW ===== */
+.glancerow{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;text-align:center}
+.glancerow .g{padding:6px 10px;border-left:1px solid var(--line);transition:.16s}
+.glancerow .g:first-child{border-left:none}
+.glancerow .g b{display:block;font-size:clamp(32px,3.6vw,42px);font-weight:800;letter-spacing:-.04em;color:var(--green-deep);line-height:1}
+.glancerow .g span{display:block;font-size:14px;color:var(--ink-soft);margin-top:9px;line-height:1.35}
+.glancerow a.g:hover b{color:var(--green)}
+.glancerow a.g:hover span{color:var(--ink)}
+.glancerow .g .more{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-top:8px;opacity:0;transition:.16s}
+.glancerow a.g:hover .more{opacity:1}
+@media(max-width:760px){
+  .glancerow{grid-template-columns:1fr 1fr;gap:30px 14px}
+  .glancerow .g:nth-child(odd){border-left:none}
+  .glancerow .g .more{display:none}
+}
+
+/* ===== COMPACT ADD-ON BAR ===== */
+.addonbar{background:var(--forest);color:#e6efe7;padding:34px 0}
+.addonbar-inner{display:flex;align-items:center;gap:32px;justify-content:space-between;flex-wrap:wrap}
+.addonbar h3{font-size:24px;color:#fff;letter-spacing:-.025em;margin:8px 0 6px}
+.addonbar p{font-size:15.5px;color:#a9c6b1}
+.addonbar p b{color:#fff}
+.addonbar .btn{flex:0 0 auto}
 
 /* ===== COMPARISON TABLE ===== */
 .ctable-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);border:1px solid var(--line)}
