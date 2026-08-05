@@ -331,12 +331,18 @@ section.block{padding:88px 0}
 .price-foot{text-align:center;font-size:13.5px;color:var(--ink-soft)}
 @media(max-width:860px){.pgrid{grid-template-columns:1fr}.plabel .pl-jump{display:none}}
 
+/* ===== PAY-AS-YOU-GO BADGE LINE ===== */
+.paybadges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:0 0 26px}
+.paybadges span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--green-deep);background:var(--green-soft);border:1px solid #cfe6d6;padding:7px 13px;border-radius:999px}
+
 /* ===== SINGLE WIDE PLAN (Prospect) ===== */
 .planwide{background:var(--forest);color:#eaf2ea;border-radius:var(--radius);padding:38px 40px;display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:center;box-shadow:var(--shadow)}
 .planwide .pn{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime)}
 .planwide .pw-from{font-size:13.5px;color:#a9c6b1;margin-top:16px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
 .planwide .pw-price{font-size:clamp(40px,5vw,54px);font-weight:800;letter-spacing:-.04em;line-height:1;margin:6px 0 8px;color:#fff}
 .planwide .pw-price span{font-size:17px;font-weight:600;color:#a9c6b1;letter-spacing:0}
+.planwide .pw-vol{display:inline-block;font-size:14px;color:#dbe9de;background:rgba(126,217,87,.14);border:1px solid #2a6644;border-radius:999px;padding:7px 14px;margin-bottom:16px}
+.planwide .pw-vol b{color:var(--lime);font-weight:800}
 .planwide .pw-desc{font-size:14.5px;color:#a9c6b1;margin-bottom:24px}
 .planwide .btn{width:100%;justify-content:center}
 .planwide h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin-bottom:12px}
