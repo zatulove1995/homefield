@@ -241,40 +241,27 @@ section.block{padding:88px 0}
 .insrow .v.bad{color:#e8968f;font-weight:600}
 @media(max-width:860px){.inswrap{grid-template-columns:1fr;gap:32px}}
 
-/* ===== COST CHART (vs direct mail) ===== */
-.costchart{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 34px 26px;box-shadow:var(--shadow);margin-bottom:26px}
-.costchart .cchead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--line)}
-.costchart .cchead b{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
-.costchart .cchead .unit{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
-.costrow{display:grid;grid-template-columns:210px 1fr 96px;align-items:center;gap:20px;padding:13px 0}
-.costrow .clabel{font-size:15px;font-weight:700;line-height:1.25}
-.costrow .clabel small{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:2px}
-.costrow .cbar{height:36px;background:var(--paper-2);border-radius:9px;overflow:hidden}
-.costrow .cbar i{display:block;height:100%;border-radius:9px;background:#cec8b6;animation:grow .9s cubic-bezier(.2,.8,.3,1) both}
-.costrow.us .cbar i{background:var(--lime)}
-.costrow.us .clabel{color:var(--green-deep)}
-.costrow .cval{text-align:right;font-size:19px;font-weight:800;letter-spacing:-.02em}
-.costrow.us .cval{color:var(--green-deep)}
-@keyframes grow{from{width:0}}
-.ccsection{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
-.ccsection .cchead{margin-bottom:18px;padding-bottom:0;border-bottom:none}
-.costnote{font-size:12.5px;color:var(--ink-soft);margin-top:8px;padding-top:16px;border-top:1px solid var(--line)}
-@media(max-width:760px){
-  .costrow{grid-template-columns:1fr auto;gap:9px 12px;padding:11px 0}
-  .costrow .clabel{grid-column:1;grid-row:1;font-size:14.5px}
-  .costrow .cval{grid-column:2;grid-row:1;font-size:17px}
-  .costrow .cbar{grid-column:1/-1;grid-row:2;height:24px}
-}
-
 .minitag{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--green-soft);color:var(--green-deep);padding:2px 7px;border-radius:999px;vertical-align:middle;font-weight:700}
-
-/* ===== COMPACT ADD-ON BAR ===== */
-.addonbar{background:var(--forest);color:#e6efe7;padding:34px 0}
-.addonbar-inner{display:flex;align-items:center;gap:32px;justify-content:space-between;flex-wrap:wrap}
-.addonbar h3{font-size:24px;color:#fff;letter-spacing:-.025em;margin:8px 0 6px}
-.addonbar p{font-size:15.5px;color:#a9c6b1}
-.addonbar p b{color:#fff}
-.addonbar .btn{flex:0 0 auto}
+/* ===== MINI COMPARE (compact cost + reply rate) ===== */
+.minicompare{max-width:600px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.mcrow{display:grid;grid-template-columns:1fr 104px 104px;align-items:center;gap:12px;padding:15px 22px;border-top:1px solid var(--line)}
+.mcrow:first-child{border-top:none}
+.mchead{background:var(--paper-2);padding-top:11px;padding-bottom:11px}
+.mchead .mcval{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.mcrow.us{background:rgba(126,217,87,.14)}
+.mcname{font-size:15.5px;font-weight:700;line-height:1.25}
+.mcname small{display:block;font-weight:400;font-size:12.5px;color:var(--ink-soft);margin-top:1px}
+.mcrow.us .mcname{color:var(--green-deep)}
+.mcval{text-align:right;font-size:18px;font-weight:800;letter-spacing:-.02em}
+.mcrow.us .mcval{color:var(--green-deep)}
+.mcnote{max-width:600px;margin:14px auto 0;font-size:12px;color:var(--ink-soft);text-align:center;line-height:1.5}
+@media(max-width:600px){
+  .mcrow{grid-template-columns:1fr 66px 66px;gap:8px;padding:13px 15px}
+  .mcname{font-size:14px}
+  .mcname small{font-size:11.5px}
+  .mcval{font-size:15.5px}
+  .mchead .mcval{font-size:9px}
+}
 
 /* ===== COMPARISON TABLE ===== */
 .ctable-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);border:1px solid var(--line)}
