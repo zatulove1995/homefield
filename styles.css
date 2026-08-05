@@ -217,6 +217,27 @@ section.block{padding:88px 0}
 .insrow .v.bad{color:#e8968f;font-weight:600}
 @media(max-width:860px){.inswrap{grid-template-columns:1fr;gap:32px}}
 
+/* ===== COST CHART (vs direct mail) ===== */
+.costchart{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 34px 26px;box-shadow:var(--shadow);margin-bottom:26px}
+.costchart .cchead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.costchart .cchead b{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.costchart .cchead .unit{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.costrow{display:grid;grid-template-columns:210px 1fr 96px;align-items:center;gap:20px;padding:13px 0}
+.costrow .clabel{font-size:15px;font-weight:700;line-height:1.25}
+.costrow .clabel small{display:block;font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-top:2px}
+.costrow .cbar{height:36px;background:var(--paper-2);border-radius:9px;overflow:hidden}
+.costrow .cbar i{display:block;height:100%;border-radius:9px;background:#cec8b6;animation:grow .9s cubic-bezier(.2,.8,.3,1) both}
+.costrow.us .cbar i{background:var(--lime)}
+.costrow.us .clabel{color:var(--green-deep)}
+.costrow .cval{text-align:right;font-size:19px;font-weight:800;letter-spacing:-.02em}
+.costrow.us .cval{color:var(--green-deep)}
+@keyframes grow{from{width:0}}
+.costnote{font-size:12.5px;color:var(--ink-soft);margin-top:8px;padding-top:16px;border-top:1px solid var(--line)}
+@media(max-width:760px){
+  .costrow{grid-template-columns:1fr 78px;gap:12px}
+  .costrow .cbar{grid-column:1/-1;height:26px}
+}
+
 /* ===== COMPARISON TABLE ===== */
 .ctable-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);border:1px solid var(--line)}
 .ctable{width:100%;border-collapse:separate;border-spacing:0;font-size:14.5px;min-width:700px}
