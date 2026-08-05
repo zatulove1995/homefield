@@ -256,10 +256,14 @@ section.block{padding:88px 0}
 .costrow .cval{text-align:right;font-size:19px;font-weight:800;letter-spacing:-.02em}
 .costrow.us .cval{color:var(--green-deep)}
 @keyframes grow{from{width:0}}
+.ccsection{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+.ccsection .cchead{margin-bottom:18px;padding-bottom:0;border-bottom:none}
 .costnote{font-size:12.5px;color:var(--ink-soft);margin-top:8px;padding-top:16px;border-top:1px solid var(--line)}
 @media(max-width:760px){
-  .costrow{grid-template-columns:1fr 78px;gap:12px}
-  .costrow .cbar{grid-column:1/-1;height:26px}
+  .costrow{grid-template-columns:1fr auto;gap:9px 12px;padding:11px 0}
+  .costrow .clabel{grid-column:1;grid-row:1;font-size:14.5px}
+  .costrow .cval{grid-column:2;grid-row:1;font-size:17px}
+  .costrow .cbar{grid-column:1/-1;grid-row:2;height:24px}
 }
 
 .minitag{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--green-soft);color:var(--green-deep);padding:2px 7px;border-radius:999px;vertical-align:middle;font-weight:700}
