@@ -354,6 +354,33 @@ section.block{padding:88px 0}
   .planwide ul{grid-template-columns:1fr}
 }
 
+/* ===== 4-UP PLAN GRID ===== */
+.pgrid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+.pgrid4 .plan{padding:26px 22px}
+.pgrid4 .plan .pr{font-size:34px}
+.pgrid4 .plan .pd{min-height:34px;font-size:13px}
+.pgrid4 .plan li{font-size:13.5px;padding:6px 0}
+@media(max-width:1040px){.pgrid4{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.pgrid4{grid-template-columns:1fr}}
+
+/* homes-per-month badge on each plan */
+.plan .homes{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;background:var(--brand-soft);color:var(--brand-deep);padding:5px 10px;border-radius:999px;margin:10px 0 2px}
+.plan.feat .homes{background:rgba(221,132,96,.16);color:var(--accent-light)}
+
+/* ===== HOW CREDITS SPEND ===== */
+.credits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:30px}
+.credit{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow);position:relative}
+.credit .cnum{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--brand);font-weight:700;margin-bottom:8px}
+.credit b{display:block;font-size:16.5px;letter-spacing:-.01em;margin-bottom:5px}
+.credit p{font-size:14px;color:var(--ink-soft);line-height:1.45}
+.credit.hi{background:var(--brand-soft);border-color:#e6d5c9}
+@media(max-width:860px){.credits{grid-template-columns:1fr}}
+
+/* overage callout */
+.overage{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:16px 22px;margin-top:22px;font-size:14.5px;color:var(--ink-soft)}
+.overage b{color:var(--ink)}
+.overage .tag2{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;background:var(--accent);color:#fff;padding:5px 11px;border-radius:999px}
+
 /* pricing teaser box */
 .ptease{background:var(--paper-2);text-align:center}
 .ptease .box{max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:38px;box-shadow:var(--shadow)}
