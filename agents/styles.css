@@ -381,6 +381,31 @@ section.block{padding:88px 0}
 .overage b{color:var(--ink)}
 .overage .tag2{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;background:var(--accent);color:#fff;padding:5px 11px;border-radius:999px}
 
+/* ===== WHAT THE SUBSCRIPTION COVERS ===== */
+.stack{margin-top:34px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.stackhead{padding:16px 24px;border-bottom:1px solid var(--line);background:var(--paper-2);display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.stackhead b{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.stackhead .onyourown{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.stackgrid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stackitem{padding:22px 24px;border-right:1px solid var(--line)}
+.stackitem:last-child{border-right:none}
+.stackitem .si{font-size:22px;display:block;margin-bottom:10px}
+.stackitem b{display:block;font-size:15.5px;letter-spacing:-.01em;margin-bottom:5px}
+.stackitem p{font-size:13.5px;color:var(--ink-soft);line-height:1.45;margin-bottom:12px}
+.stackitem .cost{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.04em;font-weight:700;color:var(--brand-deep);background:var(--brand-soft);padding:5px 10px;border-radius:999px}
+.stackfoot{padding:16px 24px;border-top:1px solid var(--line);background:var(--paper-2);font-size:14px;color:var(--ink-soft);text-align:center}
+.stackfoot b{color:var(--ink)}
+@media(max-width:900px){
+  .stackgrid{grid-template-columns:1fr 1fr}
+  .stackitem:nth-child(2){border-right:none}
+  .stackitem:nth-child(1),.stackitem:nth-child(2){border-bottom:1px solid var(--line)}
+}
+@media(max-width:560px){
+  .stackgrid{grid-template-columns:1fr}
+  .stackitem{border-right:none;border-bottom:1px solid var(--line)}
+  .stackitem:last-child{border-bottom:none}
+}
+
 /* pricing teaser box */
 .ptease{background:var(--paper-2);text-align:center}
 .ptease .box{max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:38px;box-shadow:var(--shadow)}
