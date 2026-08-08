@@ -252,13 +252,14 @@ section.block{padding:88px 0}
 .addonbar .btn{flex:0 0 auto}
 
 /* ===== INDUSTRY PILLS (high level, home page) ===== */
-.indpills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:0 auto}
+.indpills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0 auto}
 .indpill{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px;box-shadow:var(--shadow);transition:.16s ease;text-align:center}
 .indpill:hover{transform:translateY(-3px);border-color:var(--brand)}
 .indpill .ic{font-size:28px;display:block;margin-bottom:12px}
 .indpill b{display:block;font-size:17.5px;letter-spacing:-.02em;margin-bottom:5px}
 .indpill span{display:block;font-size:14px;color:var(--ink-soft);line-height:1.4}
-@media(max-width:760px){.indpills{grid-template-columns:1fr;gap:14px}.indpill{text-align:left;display:flex;align-items:center;gap:16px;padding:18px 20px}.indpill .ic{margin-bottom:0;font-size:24px}}
+@media(max-width:1000px){.indpills{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.indpills{grid-template-columns:1fr;gap:14px}.indpill{text-align:left;display:flex;align-items:center;gap:16px;padding:18px 20px}.indpill .ic{margin-bottom:0;font-size:24px}}
 
 /* ===== MINI COMPARE (compact cost + reply rate) ===== */
 .minicompare{max-width:600px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
